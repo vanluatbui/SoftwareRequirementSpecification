@@ -1,4 +1,4 @@
-﻿using E_learning.Models;
+﻿using E_learning.Entity;
 using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
 
@@ -20,7 +20,7 @@ namespace E_learning
         {
 
         }
-        protected override void OnModelCreating(ModelBuilder builder)
+        protected override async void OnModelCreating(ModelBuilder builder)
         {
             base.OnModelCreating(builder);
         }

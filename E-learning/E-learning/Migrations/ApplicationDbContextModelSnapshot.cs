@@ -22,7 +22,7 @@ namespace E_learning.Migrations
 
             SqlServerModelBuilderExtensions.UseIdentityColumns(modelBuilder, 1L, 1);
 
-            modelBuilder.Entity("E_learning.Models.AspNetUser", b =>
+            modelBuilder.Entity("E_learning.Entity.AspNetUser", b =>
                 {
                     b.Property<string>("Id")
                         .HasColumnType("nvarchar(450)");
@@ -40,6 +40,13 @@ namespace E_learning.Migrations
 
                     b.Property<bool>("EmailConfirmed")
                         .HasColumnType("bit");
+
+                    b.Property<bool>("GioiTinh")
+                        .HasColumnType("bit");
+
+                    b.Property<string>("HoTen")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
 
                     b.Property<bool>("LockoutEnabled")
                         .HasColumnType("bit");
@@ -67,9 +74,6 @@ namespace E_learning.Migrations
                     b.Property<string>("SecurityStamp")
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<bool>("Status")
-                        .HasColumnType("bit");
-
                     b.Property<bool>("TwoFactorEnabled")
                         .HasColumnType("bit");
 
@@ -90,7 +94,7 @@ namespace E_learning.Migrations
                     b.ToTable("AspNetUsers", (string)null);
                 });
 
-            modelBuilder.Entity("E_learning.Models.Diem_HocSinh", b =>
+            modelBuilder.Entity("E_learning.Entity.Diem_HocSinh", b =>
                 {
                     b.Property<Guid>("ID")
                         .ValueGeneratedOnAdd()
@@ -133,7 +137,7 @@ namespace E_learning.Migrations
                     b.ToTable("Diem_HocSinhs");
                 });
 
-            modelBuilder.Entity("E_learning.Models.HinhThuc_Thi_KiemTra", b =>
+            modelBuilder.Entity("E_learning.Entity.HinhThuc_Thi_KiemTra", b =>
                 {
                     b.Property<Guid>("ID_HinhThuc")
                         .ValueGeneratedOnAdd()
@@ -149,7 +153,7 @@ namespace E_learning.Migrations
                     b.ToTable("HinhThuc_Thi_KiemTras");
                 });
 
-            modelBuilder.Entity("E_learning.Models.KhoaHoc", b =>
+            modelBuilder.Entity("E_learning.Entity.KhoaHoc", b =>
                 {
                     b.Property<Guid>("ID_KhoaHoc")
                         .ValueGeneratedOnAdd()
@@ -162,15 +166,14 @@ namespace E_learning.Migrations
 
                     b.Property<string>("TenKhoaHoc")
                         .IsRequired()
-                        .HasMaxLength(50)
-                        .HasColumnType("nvarchar(50)");
+                        .HasColumnType("nvarchar(max)");
 
                     b.HasKey("ID_KhoaHoc");
 
                     b.ToTable("KhoaHocs");
                 });
 
-            modelBuilder.Entity("E_learning.Models.Lop", b =>
+            modelBuilder.Entity("E_learning.Entity.Lop", b =>
                 {
                     b.Property<Guid>("ID_Lop")
                         .ValueGeneratedOnAdd()
@@ -178,8 +181,7 @@ namespace E_learning.Migrations
 
                     b.Property<string>("BaoMat")
                         .IsRequired()
-                        .HasMaxLength(50)
-                        .HasColumnType("nvarchar(50)");
+                        .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("ChuDe")
                         .IsRequired()
@@ -194,8 +196,7 @@ namespace E_learning.Migrations
 
                     b.Property<string>("Link")
                         .IsRequired()
-                        .HasMaxLength(50)
-                        .HasColumnType("nvarchar(50)");
+                        .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("MoTa")
                         .IsRequired()
@@ -228,7 +229,7 @@ namespace E_learning.Migrations
                     b.ToTable("Lops");
                 });
 
-            modelBuilder.Entity("E_learning.Models.Lop_HocSinh", b =>
+            modelBuilder.Entity("E_learning.Entity.Lop_HocSinh", b =>
                 {
                     b.Property<Guid>("ID")
                         .ValueGeneratedOnAdd()
@@ -253,7 +254,7 @@ namespace E_learning.Migrations
                     b.ToTable("Lop_HocSinhs");
                 });
 
-            modelBuilder.Entity("E_learning.Models.Lop_MonHoc", b =>
+            modelBuilder.Entity("E_learning.Entity.Lop_MonHoc", b =>
                 {
                     b.Property<Guid>("ID")
                         .ValueGeneratedOnAdd()
@@ -301,7 +302,7 @@ namespace E_learning.Migrations
                     b.ToTable("Lop_MonHocs");
                 });
 
-            modelBuilder.Entity("E_learning.Models.Lop_Thi_KiemTra", b =>
+            modelBuilder.Entity("E_learning.Entity.Lop_Thi_KiemTra", b =>
                 {
                     b.Property<Guid>("ID")
                         .ValueGeneratedOnAdd()
@@ -325,7 +326,8 @@ namespace E_learning.Migrations
 
                     b.Property<string>("MoTa")
                         .IsRequired()
-                        .HasColumnType("nvarchar(max)");
+                        .HasMaxLength(100)
+                        .HasColumnType("nvarchar(100)");
 
                     b.Property<Guid>("MonHocID_MonHoc")
                         .HasColumnType("uniqueidentifier");
@@ -355,7 +357,7 @@ namespace E_learning.Migrations
                     b.ToTable("Lop_Thi_KiemTras");
                 });
 
-            modelBuilder.Entity("E_learning.Models.MonHoc", b =>
+            modelBuilder.Entity("E_learning.Entity.MonHoc", b =>
                 {
                     b.Property<Guid>("ID_MonHoc")
                         .ValueGeneratedOnAdd()
@@ -376,7 +378,7 @@ namespace E_learning.Migrations
                     b.ToTable("MonHocs");
                 });
 
-            modelBuilder.Entity("E_learning.Models.ThoiKhoaBieu", b =>
+            modelBuilder.Entity("E_learning.Entity.ThoiKhoaBieu", b =>
                 {
                     b.Property<Guid>("ID")
                         .ValueGeneratedOnAdd()
@@ -388,13 +390,11 @@ namespace E_learning.Migrations
                     b.Property<Guid>("MonHocID_MonHoc")
                         .HasColumnType("uniqueidentifier");
 
+                    b.Property<DateTime>("NgayHoc")
+                        .HasColumnType("datetime2");
+
                     b.Property<int>("SoTiet")
                         .HasColumnType("int");
-
-                    b.Property<string>("ThoiGianHoc")
-                        .IsRequired()
-                        .HasMaxLength(12)
-                        .HasColumnType("nvarchar(12)");
 
                     b.HasKey("ID");
 
@@ -538,15 +538,15 @@ namespace E_learning.Migrations
                     b.ToTable("AspNetUserTokens", (string)null);
                 });
 
-            modelBuilder.Entity("E_learning.Models.Diem_HocSinh", b =>
+            modelBuilder.Entity("E_learning.Entity.Diem_HocSinh", b =>
                 {
-                    b.HasOne("E_learning.Models.AspNetUser", "HocSinh")
+                    b.HasOne("E_learning.Entity.AspNetUser", "HocSinh")
                         .WithMany()
                         .HasForeignKey("HocSinhId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
-                    b.HasOne("E_learning.Models.MonHoc", "MonHoc")
+                    b.HasOne("E_learning.Entity.MonHoc", "MonHoc")
                         .WithMany()
                         .HasForeignKey("MonHocID_MonHoc")
                         .OnDelete(DeleteBehavior.Cascade)
@@ -557,13 +557,13 @@ namespace E_learning.Migrations
                     b.Navigation("MonHoc");
                 });
 
-            modelBuilder.Entity("E_learning.Models.Lop", b =>
+            modelBuilder.Entity("E_learning.Entity.Lop", b =>
                 {
-                    b.HasOne("E_learning.Models.AspNetUser", "GiaoVien")
+                    b.HasOne("E_learning.Entity.AspNetUser", "GiaoVien")
                         .WithMany()
                         .HasForeignKey("GiaoVienId");
 
-                    b.HasOne("E_learning.Models.KhoaHoc", "KhoaHoc")
+                    b.HasOne("E_learning.Entity.KhoaHoc", "KhoaHoc")
                         .WithMany()
                         .HasForeignKey("KhoaHocID_KhoaHoc")
                         .OnDelete(DeleteBehavior.Cascade)
@@ -574,15 +574,15 @@ namespace E_learning.Migrations
                     b.Navigation("KhoaHoc");
                 });
 
-            modelBuilder.Entity("E_learning.Models.Lop_HocSinh", b =>
+            modelBuilder.Entity("E_learning.Entity.Lop_HocSinh", b =>
                 {
-                    b.HasOne("E_learning.Models.AspNetUser", "HocSinh")
+                    b.HasOne("E_learning.Entity.AspNetUser", "HocSinh")
                         .WithMany()
                         .HasForeignKey("HocSinhId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
-                    b.HasOne("E_learning.Models.Lop", "Lop")
+                    b.HasOne("E_learning.Entity.Lop", "Lop")
                         .WithMany()
                         .HasForeignKey("LopID_Lop")
                         .OnDelete(DeleteBehavior.Cascade)
@@ -593,19 +593,19 @@ namespace E_learning.Migrations
                     b.Navigation("Lop");
                 });
 
-            modelBuilder.Entity("E_learning.Models.Lop_MonHoc", b =>
+            modelBuilder.Entity("E_learning.Entity.Lop_MonHoc", b =>
                 {
-                    b.HasOne("E_learning.Models.AspNetUser", "GiaoVien")
+                    b.HasOne("E_learning.Entity.AspNetUser", "GiaoVien")
                         .WithMany()
                         .HasForeignKey("GiaoVienId");
 
-                    b.HasOne("E_learning.Models.Lop", "Lop")
+                    b.HasOne("E_learning.Entity.Lop", "Lop")
                         .WithMany()
                         .HasForeignKey("LopID_Lop")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
-                    b.HasOne("E_learning.Models.MonHoc", "MonHoc")
+                    b.HasOne("E_learning.Entity.MonHoc", "MonHoc")
                         .WithMany()
                         .HasForeignKey("MonHocID_MonHoc")
                         .OnDelete(DeleteBehavior.Cascade)
@@ -618,21 +618,21 @@ namespace E_learning.Migrations
                     b.Navigation("MonHoc");
                 });
 
-            modelBuilder.Entity("E_learning.Models.Lop_Thi_KiemTra", b =>
+            modelBuilder.Entity("E_learning.Entity.Lop_Thi_KiemTra", b =>
                 {
-                    b.HasOne("E_learning.Models.HinhThuc_Thi_KiemTra", "HinhThuc")
+                    b.HasOne("E_learning.Entity.HinhThuc_Thi_KiemTra", "HinhThuc")
                         .WithMany()
                         .HasForeignKey("HinhThucID_HinhThuc")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
-                    b.HasOne("E_learning.Models.Lop", "Lop")
+                    b.HasOne("E_learning.Entity.Lop", "Lop")
                         .WithMany()
                         .HasForeignKey("LopID_Lop")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
-                    b.HasOne("E_learning.Models.MonHoc", "MonHoc")
+                    b.HasOne("E_learning.Entity.MonHoc", "MonHoc")
                         .WithMany()
                         .HasForeignKey("MonHocID_MonHoc")
                         .OnDelete(DeleteBehavior.Cascade)
@@ -645,15 +645,15 @@ namespace E_learning.Migrations
                     b.Navigation("MonHoc");
                 });
 
-            modelBuilder.Entity("E_learning.Models.ThoiKhoaBieu", b =>
+            modelBuilder.Entity("E_learning.Entity.ThoiKhoaBieu", b =>
                 {
-                    b.HasOne("E_learning.Models.Lop", "Lop")
+                    b.HasOne("E_learning.Entity.Lop", "Lop")
                         .WithMany()
                         .HasForeignKey("LopID_Lop")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
-                    b.HasOne("E_learning.Models.MonHoc", "MonHoc")
+                    b.HasOne("E_learning.Entity.MonHoc", "MonHoc")
                         .WithMany()
                         .HasForeignKey("MonHocID_MonHoc")
                         .OnDelete(DeleteBehavior.Cascade)
@@ -675,7 +675,7 @@ namespace E_learning.Migrations
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityUserClaim<string>", b =>
                 {
-                    b.HasOne("E_learning.Models.AspNetUser", null)
+                    b.HasOne("E_learning.Entity.AspNetUser", null)
                         .WithMany()
                         .HasForeignKey("UserId")
                         .OnDelete(DeleteBehavior.Cascade)
@@ -684,7 +684,7 @@ namespace E_learning.Migrations
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityUserLogin<string>", b =>
                 {
-                    b.HasOne("E_learning.Models.AspNetUser", null)
+                    b.HasOne("E_learning.Entity.AspNetUser", null)
                         .WithMany()
                         .HasForeignKey("UserId")
                         .OnDelete(DeleteBehavior.Cascade)
@@ -699,7 +699,7 @@ namespace E_learning.Migrations
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
-                    b.HasOne("E_learning.Models.AspNetUser", null)
+                    b.HasOne("E_learning.Entity.AspNetUser", null)
                         .WithMany()
                         .HasForeignKey("UserId")
                         .OnDelete(DeleteBehavior.Cascade)
@@ -708,7 +708,7 @@ namespace E_learning.Migrations
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityUserToken<string>", b =>
                 {
-                    b.HasOne("E_learning.Models.AspNetUser", null)
+                    b.HasOne("E_learning.Entity.AspNetUser", null)
                         .WithMany()
                         .HasForeignKey("UserId")
                         .OnDelete(DeleteBehavior.Cascade)

@@ -28,7 +28,8 @@ namespace E_learning.Migrations
                 columns: table => new
                 {
                     Id = table.Column<string>(type: "nvarchar(450)", nullable: false),
-                    Status = table.Column<bool>(type: "bit", nullable: false),
+                    HoTen = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    GioiTinh = table.Column<bool>(type: "bit", nullable: false),
                     UserName = table.Column<string>(type: "nvarchar(256)", maxLength: 256, nullable: true),
                     NormalizedUserName = table.Column<string>(type: "nvarchar(256)", maxLength: 256, nullable: true),
                     Email = table.Column<string>(type: "nvarchar(256)", maxLength: 256, nullable: true),
@@ -66,7 +67,7 @@ namespace E_learning.Migrations
                 columns: table => new
                 {
                     ID_KhoaHoc = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
-                    TenKhoaHoc = table.Column<string>(type: "nvarchar(50)", maxLength: 50, nullable: false),
+                    TenKhoaHoc = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     NienKhoaHoc = table.Column<string>(type: "nvarchar(9)", maxLength: 9, nullable: false)
                 },
                 constraints: table =>
@@ -205,8 +206,8 @@ namespace E_learning.Migrations
                     NgayKetThuc = table.Column<DateTime>(type: "datetime2", nullable: false),
                     ThoiLuongHoc = table.Column<int>(type: "int", nullable: false),
                     Status = table.Column<int>(type: "int", nullable: false),
-                    BaoMat = table.Column<string>(type: "nvarchar(50)", maxLength: 50, nullable: false),
-                    Link = table.Column<string>(type: "nvarchar(50)", maxLength: 50, nullable: false),
+                    BaoMat = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    Link = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     GiaoVienId = table.Column<string>(type: "nvarchar(450)", nullable: true),
                     KhoaHocID_KhoaHoc = table.Column<Guid>(type: "uniqueidentifier", nullable: false)
                 },
@@ -332,7 +333,7 @@ namespace E_learning.Migrations
                     HinhThucID_HinhThuc = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
                     NoiDung = table.Column<string>(type: "nvarchar(100)", maxLength: 100, nullable: false),
                     ChuDe = table.Column<string>(type: "nvarchar(100)", maxLength: 100, nullable: false),
-                    MoTa = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    MoTa = table.Column<string>(type: "nvarchar(100)", maxLength: 100, nullable: false),
                     ThoiLuong = table.Column<int>(type: "int", nullable: false),
                     Status = table.Column<int>(type: "int", nullable: false),
                     FileTestName = table.Column<string>(type: "nvarchar(50)", maxLength: 50, nullable: false)
@@ -366,7 +367,7 @@ namespace E_learning.Migrations
                 {
                     ID = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
                     LopID_Lop = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
-                    ThoiGianHoc = table.Column<string>(type: "nvarchar(12)", maxLength: 12, nullable: false),
+                    NgayHoc = table.Column<DateTime>(type: "datetime2", nullable: false),
                     SoTiet = table.Column<int>(type: "int", nullable: false),
                     MonHocID_MonHoc = table.Column<Guid>(type: "uniqueidentifier", nullable: false)
                 },

@@ -1,22 +1,21 @@
-﻿using E_learning.Models;
-using System.ComponentModel;
+﻿using System.ComponentModel;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 
-namespace E_learning.Models
+namespace E_learning.Entity
 {
     public class Lop_HocSinh
     {
         [Key]
         public Guid ID { get; set; }
 
-        [Required, DisplayName("Lớp")]
+        [Required]
         public Lop Lop { get; set; }
 
-        [Required, DisplayName("Học sinh")]
+        [Required]
         public AspNetUser HocSinh { get; set; }
 
-        [Required, DisplayFormat(DataFormatString = "{0:dd/MM/yyyy}", ApplyFormatInEditMode = true), DisplayName("Ngày tham gia")]
+        [Required, DisplayFormat(DataFormatString = "{0:dd/MM/yyyy HH:mm:ss}", ApplyFormatInEditMode = true)]
         public DateTime NgayThamGia { get; set; }
 
     }

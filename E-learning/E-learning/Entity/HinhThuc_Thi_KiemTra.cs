@@ -1,14 +1,14 @@
 ﻿using System.ComponentModel;
 using System.ComponentModel.DataAnnotations;
 
-namespace E_learning.Models
+namespace E_learning.Entity
 {
     public class HinhThuc_Thi_KiemTra
     {
-        [Key, DisplayName("ID_HinhThuc")]
+        [Key]
         public Guid ID_HinhThuc { get; set; }
 
-        [Required, MaxLength(50), DisplayName("Tên hình thức")]
+        [Required, MaxLength(50)]
         public string TenHinhThuc { get; set; }
     }
 }
