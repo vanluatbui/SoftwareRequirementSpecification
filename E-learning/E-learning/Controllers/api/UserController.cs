@@ -4,16 +4,16 @@ using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 
-namespace E_learning.Controllers.api.User
+namespace E_learning.Controllers.api
 {
-    [Route("api/User/[controller]")]
+    [Route("api/[controller]")]
     [ApiController]
-    public class RegisterController : ControllerBase
+    public class UserController : ControllerBase
     {
         UserManager<AspNetUser> userManager { get; set; }
         RoleManager<IdentityRole> roleManager { get; set; }
         IConfiguration configuration { get; set; }
-        public RegisterController(UserManager<AspNetUser>
+        public UserController(UserManager<AspNetUser>
         userManager, RoleManager<IdentityRole> roleManager, IConfiguration
         configuration)
         {
@@ -40,7 +40,7 @@ namespace E_learning.Controllers.api.User
             user.Id = Guid.NewGuid().ToString();
             var result = await userManager.CreateAsync(user,
             userModel.MatKhau);
-           // await userManager.AddToRoleAsync(user, "Teacher");
+            // await userManager.AddToRoleAsync(user, "Teacher");
             await userManager.AddToRoleAsync(user, "Student");
             return Ok(new { status = true, message = "Register successful" });
         }

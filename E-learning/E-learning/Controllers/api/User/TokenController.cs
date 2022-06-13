@@ -67,7 +67,7 @@ Guid.NewGuid().ToString()),
                     );
                     string strToken = new
                     JwtSecurityTokenHandler().WriteToken(token);
-                    return Ok(new { status = true, message = "", token = strToken });
+                    return Ok(new { status = true, message = "Authenticate Successful ", token = strToken });
                 }
                 return Ok(new { status = false, message = "Can not authenticate" });
             }

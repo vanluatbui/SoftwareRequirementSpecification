@@ -1,5 +1,7 @@
 using E_learning;
 using E_learning.Entity;
+using E_learning.Repositories;
+using E_learning.Services;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
@@ -51,6 +53,17 @@ builder.Services.AddAuthentication(options =>
     ))
     };
 });
+
+//===========================================================
+
+builder.Services.AddTransient<IKhoaHocRepository, KhoaHocRespository>();
+builder.Services.AddTransient<KhoaHocService>();
+
+builder.Services.AddTransient<ILopRepository, LopRespository>();
+builder.Services.AddTransient<LopService>();
+
+builder.Services.AddTransient<ILop_HocSinhRepository, Lop_HocSinhRespository>();
+builder.Services.AddTransient<Lop_HocSinhService>();
 
 //-------------------------------------------------
 
