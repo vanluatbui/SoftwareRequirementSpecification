@@ -1,13 +1,11 @@
 ﻿namespace E_learning.Model
 {
-    public class UserModel
+    public class ModelUser
     {
         public string UserName { get; set; }
         public string HoTen { get; set; }
         public bool GioiTinh { get; set; } // false : girl - true : boy
         public string MatKhau { get; set; }
         public string Email { get; set; }
-
-        public string Quyen { get; set; } // Teacher or [Student] ...?
     }
 }
