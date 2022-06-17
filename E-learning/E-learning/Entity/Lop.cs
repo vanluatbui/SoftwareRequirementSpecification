@@ -18,10 +18,10 @@ namespace E_learning.Entity
         [MaxLength(100)]
         public string MoTa { get; set; }
 
-        [Required, DisplayFormat(DataFormatString = "{0:dd/MM/yyyy HH:mm:ss}", ApplyFormatInEditMode = true)]
+        [Required]
         public DateTime NgayBatDau { get; set; }
 
-        [Required, DisplayFormat(DataFormatString = "{0:dd/MM/yyyy HH:mm:ss}", ApplyFormatInEditMode = true)]
+        [Required]
         public DateTime NgayKetThuc { get; set; }
 
         [Required]

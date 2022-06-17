@@ -28,6 +28,7 @@ namespace E_learning.Controllers.api
             try
             {
                 var listLop = _lopService.GetLops();
+
                 return Ok(new { result = true, data = listLop });
             }
             catch
@@ -57,7 +58,7 @@ namespace E_learning.Controllers.api
         {
             try
             {
-                _lopService.UpdateLop(ID_Lop, newLop);
+                _lopService.UpdateLop(ID_Lop, newLop, _userManager);
                 return Ok(new { result = true, message = "Update Lop Successful !" });
             }
             catch

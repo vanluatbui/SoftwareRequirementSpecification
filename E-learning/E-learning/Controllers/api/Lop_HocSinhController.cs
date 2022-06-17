@@ -53,11 +53,11 @@ namespace E_learning.Controllers.api
         }
 
         [HttpPut]
-        public async Task<ActionResult> CapNhat1Lop_HocSinh(Guid ID, LopModel newLop_HocSinh)
+        public async Task<ActionResult> CapNhat1Lop_HocSinh(Guid ID, Lop_HocSinhModel newLop_HocSinh)
         {
             try
             {
-                _lop_HocSinhService.UpdateLop_HocSinh(ID, newLop_HocSinh);
+                _lop_HocSinhService.UpdateLop_HocSinh(ID, newLop_HocSinh, _userManager);
                 return Ok(new { result = true, message = "Update Lop_HocSinh Successful !" });
             }
             catch

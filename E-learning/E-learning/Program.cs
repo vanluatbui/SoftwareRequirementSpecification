@@ -40,6 +40,12 @@ builder.Services.AddTransient<LopService>();
 builder.Services.AddTransient<ILop_HocSinhRepository, Lop_HocSinhRespository>();
 builder.Services.AddTransient<Lop_HocSinhService>();
 
+builder.Services.AddTransient<IMonHocRepository, MonHocRespository>();
+builder.Services.AddTransient<MonHocService>();
+
+builder.Services.AddTransient<ILop_MonHocRepository, Lop_MonHocRespository>();
+builder.Services.AddTransient<Lop_MonHocService>();
+
 //-------------------------------------------------
 
 builder.Services.AddControllers();

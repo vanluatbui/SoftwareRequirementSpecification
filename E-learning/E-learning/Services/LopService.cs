@@ -22,9 +22,9 @@ namespace E_learning.Services
             _lopRepository.InsertLop(newLop, userManager);
         }
 
-        public void UpdateLop(Guid ID_Lop, LopModel newLop)
+        public async void UpdateLop(Guid ID_Lop, LopModel newLop, UserManager<AspNetUser> userManager)
         {
-            _lopRepository.UpdateLop(ID_Lop, newLop);
+            _lopRepository.UpdateLop(ID_Lop, newLop, userManager);
         }
 
         public void RemoveLop(Guid ID_Lop)

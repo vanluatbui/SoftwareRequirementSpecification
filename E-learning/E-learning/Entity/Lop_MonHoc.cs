@@ -18,10 +18,10 @@ namespace E_learning.Entity
         [Required]
         public int ThoiLuongHoc { get; set; }
 
-        [Required, DisplayFormat(DataFormatString = "{0:dd/MM/yyyy HH:mm:ss}", ApplyFormatInEditMode = true)]
+        [Required]
         public DateTime NgayBatDau { get; set; }
 
-        [Required, DisplayFormat(DataFormatString = "{0:dd/MM/yyyy HH:mm:ss}", ApplyFormatInEditMode = true)]
+        [Required]
         public DateTime NgayKetThuc { get; set; }
 
         [Required, MaxLength(50)]

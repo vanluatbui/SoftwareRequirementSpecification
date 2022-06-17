@@ -22,9 +22,9 @@ namespace E_learning.Services
             _lop_HocSinhRepository.InsertLop_HocSinh(newLop_HocSinh, userManager);
         }
 
-        public void UpdateLop_HocSinh(Guid ID, LopModel newLop_HocSinh)
+        public void UpdateLop_HocSinh(Guid ID, Lop_HocSinhModel newLop_HocSinh, UserManager<AspNetUser> userManager)
         {
-            _lop_HocSinhRepository.UpdateLop_HocSinh(ID, newLop_HocSinh);
+            _lop_HocSinhRepository.UpdateLop_HocSinh(ID, newLop_HocSinh, userManager);
         }
 
         public void RemoveLop_HocSinh(Guid ID)

@@ -15,7 +15,7 @@ namespace E_learning.Entity
         [Required]
         public AspNetUser HocSinh { get; set; }
 
-        [Required, DisplayFormat(DataFormatString = "{0:dd/MM/yyyy HH:mm:ss}", ApplyFormatInEditMode = true)]
+        [Required]
         public DateTime NgayThamGia { get; set; }
 
     }

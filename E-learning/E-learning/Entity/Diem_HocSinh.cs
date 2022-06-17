@@ -33,7 +33,7 @@ namespace E_learning.Entity
         [Required]
         public int DanhGia { get; set; }
 
-        [Required, DisplayFormat(DataFormatString = "{0:dd/MM/yyyy HH:mm:ss}", ApplyFormatInEditMode = true)]
+        [Required]
         public DateTime NgayCapNhat { get; set; }
     }
 }

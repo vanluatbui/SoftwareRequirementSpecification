@@ -12,7 +12,7 @@ namespace E_learning.Repositories
         List<Lop> GetLops();
         void InsertLop(LopModel newLop, UserManager<AspNetUser> userManager);
 
-        void UpdateLop(Guid ID_Lop, LopModel newLop);
+        void UpdateLop(Guid ID_Lop, LopModel newLop, UserManager<AspNetUser> userManager);
 
         void RemoveLop(Guid ID_Lop);
     }
@@ -26,6 +26,7 @@ namespace E_learning.Repositories
         public List<Lop> GetLops()
         {
             var query = _dbcontext.Lops;
+            
             return query.ToList();
         }
 
@@ -49,11 +50,14 @@ namespace E_learning.Repositories
             _dbcontext.SaveChanges();
         }
 
-        public void UpdateLop (Guid ID_Lop, LopModel newLop)
+        public async void UpdateLop (Guid ID_Lop, LopModel newLop, UserManager<AspNetUser> userManager)
         {
             Lop lop = _dbcontext.Lops.First(p => p.ID_Lop == ID_Lop);
 
             _dbcontext.Entry(lop).CurrentValues.SetValues(newLop);
+
+           lop.KhoaHoc = _dbcontext.KhoaHocs.First(p => p.ID_KhoaHoc == newLop.ID_KhoaHoc);
+            lop.GiaoVien = await userManager.FindByNameAsync(newLop.username_GiaoVien);
 
             _dbcontext.SaveChanges();
         }
