@@ -10,9 +10,9 @@ namespace E_learning.Repositories
     public interface ILopRepository : IRepository<Lop>
     {
         List<Lop> GetLops();
-        void InsertLop(LopModel newLop, UserManager<AspNetUser> userManager);
+        void InsertLop(LopModel newLop);
 
-        void UpdateLop(Guid ID_Lop, LopModel newLop, UserManager<AspNetUser> userManager);
+        void UpdateLop(Guid ID_Lop, LopModel newLop);
 
         void RemoveLop(Guid ID_Lop);
     }
@@ -30,7 +30,7 @@ namespace E_learning.Repositories
             return query.ToList();
         }
 
-        public async void InsertLop(LopModel newLop, UserManager<AspNetUser> userManager)
+        public async void InsertLop(LopModel newLop)
         {
             var config = new MapperConfiguration(cfg =>
             {
@@ -42,22 +42,15 @@ namespace E_learning.Repositories
             Lop lop = new Lop();
             lop = mapper.Map<LopModel, Lop>(newLop);
 
-            lop.ID_Lop = Guid.NewGuid();
-            lop.KhoaHoc = _dbcontext.KhoaHocs.First(p => p.ID_KhoaHoc ==newLop.ID_KhoaHoc);
-            lop.GiaoVien = await userManager.FindByNameAsync(newLop.username_GiaoVien);
-
             _dbcontext.Lops.Add(lop);
             _dbcontext.SaveChanges();
         }
 
-        public async void UpdateLop (Guid ID_Lop, LopModel newLop, UserManager<AspNetUser> userManager)
+        public async void UpdateLop (Guid ID_Lop, LopModel newLop)
         {
             Lop lop = _dbcontext.Lops.First(p => p.ID_Lop == ID_Lop);
 
             _dbcontext.Entry(lop).CurrentValues.SetValues(newLop);
-
-           lop.KhoaHoc = _dbcontext.KhoaHocs.First(p => p.ID_KhoaHoc == newLop.ID_KhoaHoc);
-            lop.GiaoVien = await userManager.FindByNameAsync(newLop.username_GiaoVien);
 
             _dbcontext.SaveChanges();
         }

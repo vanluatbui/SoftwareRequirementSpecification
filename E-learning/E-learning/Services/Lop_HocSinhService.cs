@@ -17,14 +17,14 @@ namespace E_learning.Services
             return _lop_HocSinhRepository.GetLop_HocSinhs();
         }
 
-        public async void InsertLop_HocSinh(Lop_HocSinhModel newLop_HocSinh, UserManager<AspNetUser> userManager)
+        public async void InsertLop_HocSinh(Lop_HocSinhModel newLop_HocSinh)
         {
-            _lop_HocSinhRepository.InsertLop_HocSinh(newLop_HocSinh, userManager);
+            _lop_HocSinhRepository.InsertLop_HocSinh(newLop_HocSinh);
         }
 
-        public void UpdateLop_HocSinh(Guid ID, Lop_HocSinhModel newLop_HocSinh, UserManager<AspNetUser> userManager)
+        public void UpdateLop_HocSinh(Guid ID, Lop_HocSinhModel newLop_HocSinh)
         {
-            _lop_HocSinhRepository.UpdateLop_HocSinh(ID, newLop_HocSinh, userManager);
+            _lop_HocSinhRepository.UpdateLop_HocSinh(ID, newLop_HocSinh);
         }
 
         public void RemoveLop_HocSinh(Guid ID)

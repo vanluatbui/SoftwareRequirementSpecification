@@ -13,13 +13,11 @@ namespace E_learning.Controllers.api
     {
         private readonly ILogger<Lop_HocSinhController> _logger;
         private Lop_HocSinhService _lop_HocSinhService;
-        private readonly UserManager<AspNetUser> _userManager;
 
-        public Lop_HocSinhController(ILogger<Lop_HocSinhController> logger, Lop_HocSinhService lop_HocSinhService, UserManager<AspNetUser> userManager)
+        public Lop_HocSinhController(ILogger<Lop_HocSinhController> logger, Lop_HocSinhService lop_HocSinhService)
         {
             _logger = logger;
             _lop_HocSinhService = lop_HocSinhService;
-            _userManager = userManager;
         }
 
         [HttpGet]
@@ -42,7 +40,7 @@ namespace E_learning.Controllers.api
             try
             {
                  
-                _lop_HocSinhService.InsertLop_HocSinh(newLop_HocSinh, _userManager);
+                _lop_HocSinhService.InsertLop_HocSinh(newLop_HocSinh);
 
                 return Ok(new { result = true, message = "Insert Lop_HocSinh Successful !" });
             }
@@ -57,7 +55,7 @@ namespace E_learning.Controllers.api
         {
             try
             {
-                _lop_HocSinhService.UpdateLop_HocSinh(ID, newLop_HocSinh, _userManager);
+                _lop_HocSinhService.UpdateLop_HocSinh(ID, newLop_HocSinh);
                 return Ok(new { result = true, message = "Update Lop_HocSinh Successful !" });
             }
             catch

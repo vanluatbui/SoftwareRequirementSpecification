@@ -13,13 +13,11 @@ namespace E_learning.Controllers.api
     {
         private readonly ILogger<Lop_MonHocController> _logger;
         private Lop_MonHocService _Lop_MonHocService;
-        private readonly UserManager<AspNetUser> _userManager;
 
-        public Lop_MonHocController(ILogger<Lop_MonHocController> logger, Lop_MonHocService Lop_MonHocService, UserManager<AspNetUser> userManager)
+        public Lop_MonHocController(ILogger<Lop_MonHocController> logger, Lop_MonHocService Lop_MonHocService)
         {
             _logger = logger;
             _Lop_MonHocService = Lop_MonHocService;
-            _userManager = userManager;
         }
 
         [HttpGet]
@@ -42,7 +40,7 @@ namespace E_learning.Controllers.api
             try
             {
                  
-                _Lop_MonHocService.InsertLop_MonHoc(newLop_MonHoc, _userManager);
+                _Lop_MonHocService.InsertLop_MonHoc(newLop_MonHoc);
 
                 return Ok(new { result = true, message = "Insert Lop_MonHoc Successful !" });
             }
@@ -57,7 +55,7 @@ namespace E_learning.Controllers.api
         {
             try
             {
-                _Lop_MonHocService.UpdateLop_MonHoc(ID, newLop_MonHoc, _userManager);
+                _Lop_MonHocService.UpdateLop_MonHoc(ID, newLop_MonHoc);
                 return Ok(new { result = true, message = "Update Lop_MonHoc Successful !" });
             }
             catch

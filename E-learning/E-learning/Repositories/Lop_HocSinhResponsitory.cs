@@ -10,8 +10,8 @@ namespace E_learning.Repositories
     public interface ILop_HocSinhRepository : IRepository<Lop_HocSinh>
     {
         List<Lop_HocSinh> GetLop_HocSinhs();
-        void InsertLop_HocSinh(Lop_HocSinhModel newLop_HocSinh, UserManager<AspNetUser> userManager);
-        void UpdateLop_HocSinh(Guid ID, Lop_HocSinhModel newLop_HocSinh, UserManager<AspNetUser> userManager);
+        void InsertLop_HocSinh(Lop_HocSinhModel newLop_HocSinh);
+        void UpdateLop_HocSinh(Guid ID, Lop_HocSinhModel newLop_HocSinh);
 
         void RemoveLop_HocSinh(Guid ID);
     }
@@ -28,7 +28,7 @@ namespace E_learning.Repositories
             return query.ToList();
         }
 
-        public async void InsertLop_HocSinh(Lop_HocSinhModel newLop_HocSinh, UserManager<AspNetUser> userManager)
+        public async void InsertLop_HocSinh(Lop_HocSinhModel newLop_HocSinh)
         {
             var config = new MapperConfiguration(cfg =>
             {
@@ -40,22 +40,15 @@ namespace E_learning.Repositories
             Lop_HocSinh lop_hs = new Lop_HocSinh();
             lop_hs = mapper.Map<Lop_HocSinhModel, Lop_HocSinh>(newLop_HocSinh);
 
-            lop_hs.ID = Guid.NewGuid();
-            lop_hs.Lop = _dbcontext.Lops.First(p => p.ID_Lop ==newLop_HocSinh.ID_Lop);
-            lop_hs.HocSinh = await userManager.FindByNameAsync(newLop_HocSinh.username_HocSinh);
-
             _dbcontext.Lop_HocSinhs.Add(lop_hs);
             _dbcontext.SaveChanges();
         }
 
-        public async void UpdateLop_HocSinh(Guid ID, Lop_HocSinhModel newLop_HocSinh,UserManager<AspNetUser> userManager)
+        public async void UpdateLop_HocSinh(Guid ID, Lop_HocSinhModel newLop_HocSinh)
         {
             Lop_HocSinh lop_hs = _dbcontext.Lop_HocSinhs.First(p => p.ID == ID);
 
             _dbcontext.Entry(lop_hs).CurrentValues.SetValues(newLop_HocSinh);
-
-            lop_hs.Lop = _dbcontext.Lops.First(p => p.ID_Lop == newLop_HocSinh.ID_Lop);
-            lop_hs.HocSinh = await userManager.FindByNameAsync(newLop_HocSinh.username_HocSinh);
 
             _dbcontext.SaveChanges();
         }

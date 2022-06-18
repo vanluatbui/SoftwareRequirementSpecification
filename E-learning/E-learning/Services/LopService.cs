@@ -17,14 +17,14 @@ namespace E_learning.Services
             return _lopRepository.GetLops();
         }
 
-        public async void InsertLop(LopModel newLop, UserManager<AspNetUser> userManager)
+        public async void InsertLop(LopModel newLop)
         {
-            _lopRepository.InsertLop(newLop, userManager);
+            _lopRepository.InsertLop(newLop);
         }
 
-        public async void UpdateLop(Guid ID_Lop, LopModel newLop, UserManager<AspNetUser> userManager)
+        public async void UpdateLop(Guid ID_Lop, LopModel newLop)
         {
-            _lopRepository.UpdateLop(ID_Lop, newLop, userManager);
+            _lopRepository.UpdateLop(ID_Lop, newLop);
         }
 
         public void RemoveLop(Guid ID_Lop)

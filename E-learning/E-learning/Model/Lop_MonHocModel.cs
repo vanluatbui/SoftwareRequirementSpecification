@@ -1,12 +1,14 @@
-﻿namespace E_learning.Model
+﻿using E_learning.Entity;
+
+namespace E_learning.Model
 {
     public class Lop_MonHocModel
     {
         public Guid ID { get; set; }
 
-        public Guid ID_Lop { get; set; }
+        public Lop Lop { get; set; }
 
-        public Guid ID_MonHoc { get; set; }
+        public MonHoc MonHoc { get; set; }
 
         public int ThoiLuongHoc { get; set; }
 
@@ -20,6 +22,6 @@
 
         public int Status { get; set; }
 
-        public string username_GiaoVien { get; set; }
+        public AspNetUser GiaoVien { get; set; }
     }
 }

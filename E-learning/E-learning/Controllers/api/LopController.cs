@@ -13,13 +13,11 @@ namespace E_learning.Controllers.api
     {
         private readonly ILogger<LopController> _logger;
         private LopService _lopService;
-        private readonly UserManager<AspNetUser> _userManager;
 
-        public LopController(ILogger<LopController> logger, LopService lopService, UserManager<AspNetUser> userManager)
+        public LopController(ILogger<LopController> logger, LopService lopService)
         {
             _logger = logger;
             _lopService = lopService;
-            _userManager = userManager;
         }
 
         [HttpGet]
@@ -43,7 +41,7 @@ namespace E_learning.Controllers.api
             try
             {
                  
-                _lopService.InsertLop(newLop, _userManager);
+                _lopService.InsertLop(newLop);
 
                 return Ok(new { result = true, message = "Insert Lop Successful !" });
             }
@@ -58,7 +56,7 @@ namespace E_learning.Controllers.api
         {
             try
             {
-                _lopService.UpdateLop(ID_Lop, newLop, _userManager);
+                _lopService.UpdateLop(ID_Lop, newLop);
                 return Ok(new { result = true, message = "Update Lop Successful !" });
             }
             catch

@@ -10,8 +10,8 @@ namespace E_learning.Repositories
     public interface ILop_MonHocRepository : IRepository<Lop_MonHoc>
     {
         List<Lop_MonHoc> GetLop_MonHocs();
-        void InsertLop_MonHoc(Lop_MonHocModel newLop_MonHoc, UserManager<AspNetUser> userManager);
-        void UpdateLop_MonHoc(Guid ID, Lop_MonHocModel newLop_MonHoc, UserManager<AspNetUser> userManager);
+        void InsertLop_MonHoc(Lop_MonHocModel newLop_MonHoc);
+        void UpdateLop_MonHoc(Guid ID, Lop_MonHocModel newLop_MonHoc);
 
         void RemoveLop_MonHoc(Guid ID);
     }
@@ -28,7 +28,7 @@ namespace E_learning.Repositories
             return query.ToList();
         }
 
-        public async void InsertLop_MonHoc(Lop_MonHocModel newLop_MonHoc, UserManager<AspNetUser> userManager)
+        public async void InsertLop_MonHoc(Lop_MonHocModel newLop_MonHoc)
         {
             var config = new MapperConfiguration(cfg =>
             {
@@ -40,25 +40,15 @@ namespace E_learning.Repositories
             Lop_MonHoc lop_mh = new Lop_MonHoc();
             lop_mh = mapper.Map<Lop_MonHocModel, Lop_MonHoc>(newLop_MonHoc);
 
-            lop_mh.ID = Guid.NewGuid();
-            lop_mh.Lop = _dbcontext.Lops.First(p => p.ID_Lop ==newLop_MonHoc.ID_Lop);
-            lop_mh.MonHoc = _dbcontext.MonHocs.First(p => p.ID_MonHoc == newLop_MonHoc.ID_MonHoc);
-            lop_mh.GiaoVien = await userManager.FindByNameAsync(newLop_MonHoc.username_GiaoVien);
-
             _dbcontext.Lop_MonHocs.Add(lop_mh);
             _dbcontext.SaveChanges();
         }
 
-        public async void UpdateLop_MonHoc(Guid ID, Lop_MonHocModel newLop_MonHoc,UserManager<AspNetUser> userManager)
+        public async void UpdateLop_MonHoc(Guid ID, Lop_MonHocModel newLop_MonHoc)
         {
             Lop_MonHoc lop_mh = _dbcontext.Lop_MonHocs.First(p => p.ID == ID);
 
             _dbcontext.Entry(lop_mh).CurrentValues.SetValues(newLop_MonHoc);
-
-            lop_mh.ID = Guid.NewGuid();
-            lop_mh.Lop = _dbcontext.Lops.First(p => p.ID_Lop == newLop_MonHoc.ID_Lop);
-            lop_mh.MonHoc = _dbcontext.MonHocs.First(p => p.ID_MonHoc == newLop_MonHoc.ID_MonHoc);
-            lop_mh.GiaoVien = await userManager.FindByNameAsync(newLop_MonHoc.username_GiaoVien);
 
             _dbcontext.SaveChanges();
         }

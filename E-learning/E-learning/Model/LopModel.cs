@@ -1,4 +1,6 @@
 ﻿
+using E_learning.Entity;
+
 namespace E_learning.Model
 {
     public class LopModel
@@ -19,8 +21,8 @@ namespace E_learning.Model
 
         public string Link { get; set; }
 
-        public string username_GiaoVien { get; set; }
+        public AspNetUser GiaoVien { get; set; }
 
-        public Guid ID_KhoaHoc { get; set; }
+        public KhoaHoc ID_KhoaHoc { get; set; }
     }
 }

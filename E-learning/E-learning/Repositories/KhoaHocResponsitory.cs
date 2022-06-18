@@ -39,7 +39,6 @@ namespace E_learning.Repositories
 
             KhoaHoc kh = new KhoaHoc();
             kh = mapper.Map<KhoaHocModel, KhoaHoc>(newKH);
-            kh.ID_KhoaHoc = Guid.NewGuid();
 
             _dbcontext.KhoaHocs.Add(kh);
             _dbcontext.SaveChanges();

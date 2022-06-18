@@ -39,7 +39,6 @@ namespace E_learning.Repositories
 
             MonHoc mh = new MonHoc();
             mh = mapper.Map<MonHocModel, MonHoc>(newMH);
-            mh.ID_MonHoc = Guid.NewGuid();
 
             _dbcontext.MonHocs.Add(mh);
             _dbcontext.SaveChanges();

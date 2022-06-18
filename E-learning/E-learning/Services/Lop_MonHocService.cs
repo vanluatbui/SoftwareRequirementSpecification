@@ -17,14 +17,14 @@ namespace E_learning.Services
             return _Lop_MonHocRepository.GetLop_MonHocs();
         }
 
-        public async void InsertLop_MonHoc(Lop_MonHocModel newLop_MonHoc, UserManager<AspNetUser> userManager)
+        public async void InsertLop_MonHoc(Lop_MonHocModel newLop_MonHoc)
         {
-            _Lop_MonHocRepository.InsertLop_MonHoc(newLop_MonHoc, userManager);
+            _Lop_MonHocRepository.InsertLop_MonHoc(newLop_MonHoc);
         }
 
-        public void UpdateLop_MonHoc(Guid ID, Lop_MonHocModel newLop_MonHoc, UserManager<AspNetUser> userManager)
+        public void UpdateLop_MonHoc(Guid ID, Lop_MonHocModel newLop_MonHoc)
         {
-            _Lop_MonHocRepository.UpdateLop_MonHoc(ID, newLop_MonHoc, userManager);
+            _Lop_MonHocRepository.UpdateLop_MonHoc(ID, newLop_MonHoc);
         }
 
         public void RemoveLop_MonHoc(Guid ID)
