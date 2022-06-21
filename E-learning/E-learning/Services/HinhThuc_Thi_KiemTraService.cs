@@ -4,31 +4,31 @@ using E_learning.Repositories;
 
 namespace E_learning.Services
 {
-    public class KhoaHocService
+    public class HinhThuc_Thi_KiemTraService
     {
-        private IKhoaHocRepository _khoahocRepository;
-        public KhoaHocService(IKhoaHocRepository khoahocRepository)
+        private IHinhThuc_Thi_KiemTraRepository _HinhThuc_Thi_KiemTraRepository;
+        public HinhThuc_Thi_KiemTraService(IHinhThuc_Thi_KiemTraRepository HinhThuc_Thi_KiemTraRepository)
         {
-            _khoahocRepository = khoahocRepository;
+            _HinhThuc_Thi_KiemTraRepository = HinhThuc_Thi_KiemTraRepository;
         }
-        public List<KhoaHoc> GetKhoaHocs()
+        public List<HinhThuc_Thi_KiemTra> GetHinhThuc_Thi_KiemTras()
         {
-            return _khoahocRepository.GetKhoaHocs();
-        }
-
-        public void InsertKhoaHoc(KhoaHocModel newKH)
-        {
-            _khoahocRepository.InsertKhoaHoc(newKH);
+            return _HinhThuc_Thi_KiemTraRepository.GetHinhThuc_Thi_KiemTras();
         }
 
-        public void UpdateKhoaHoc (Guid ID_KhoaHoc, KhoaHocModel newKH)
+        public void InsertHinhThuc_Thi_KiemTra(HinhThuc_Thi_KiemTraModel newHT)
         {
-            _khoahocRepository.UpdateKhoaHoc(ID_KhoaHoc, newKH);
+            _HinhThuc_Thi_KiemTraRepository.InsertHinhThuc_Thi_KiemTra(newHT);
         }
 
-        public void RemoveKhoaHoc(Guid ID_KhoaHoc)
+        public void UpdateHinhThuc_Thi_KiemTra (Guid ID_HinhThuc_Thi_KiemTra, HinhThuc_Thi_KiemTraModel newHT)
         {
-            _khoahocRepository.RemoveKhoaHoc(ID_KhoaHoc);
+            _HinhThuc_Thi_KiemTraRepository.UpdateHinhThuc_Thi_KiemTra(ID_HinhThuc_Thi_KiemTra, newHT);
+        }
+
+        public void RemoveHinhThuc_Thi_KiemTra(Guid ID_HinhThuc_Thi_KiemTra)
+        {
+            _HinhThuc_Thi_KiemTraRepository.RemoveHinhThuc_Thi_KiemTra(ID_HinhThuc_Thi_KiemTra);
         }
     }
 }
