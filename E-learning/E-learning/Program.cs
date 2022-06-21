@@ -50,6 +50,9 @@ builder.Services.AddTransient<Lop_MonHocService>();
 builder.Services.AddTransient<IThoiKhoaBieuRepository, ThoiKhoaBieuRespository>();
 builder.Services.AddTransient<ThoiKhoaBieuService>();
 
+builder.Services.AddTransient<IHinhThuc_Thi_KiemTraRepository, HinhThuc_Thi_KiemTraRespository>();
+builder.Services.AddTransient<HinhThuc_Thi_KiemTraService>();
+
 //-------------------------------------------------
 
 builder.Services.AddControllers();
