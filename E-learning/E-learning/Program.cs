@@ -53,6 +53,12 @@ builder.Services.AddTransient<ThoiKhoaBieuService>();
 builder.Services.AddTransient<IHinhThuc_Thi_KiemTraRepository, HinhThuc_Thi_KiemTraRespository>();
 builder.Services.AddTransient<HinhThuc_Thi_KiemTraService>();
 
+builder.Services.AddTransient<ILop_Thi_KiemTraRepository, Lop_Thi_KiemTraRespository>();
+builder.Services.AddTransient<Lop_Thi_KiemTraService>();
+
+builder.Services.AddTransient<IDiem_HocSinhRepository, Diem_HocSinhRespository>();
+builder.Services.AddTransient<Diem_HocSinhService>();
+
 //-------------------------------------------------
 
 builder.Services.AddControllers();
