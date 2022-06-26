@@ -23,6 +23,6 @@ namespace E_learning.Model
 
         public AspNetUser GiaoVien { get; set; }
 
-        public KhoaHoc ID_KhoaHoc { get; set; }
+        public KhoaHoc KhoaHoc { get; set; }
     }
 }

@@ -32,7 +32,7 @@ namespace E_learning.Repositories
         {
             var config = new MapperConfiguration(cfg =>
             {
-                Lop_Thi_KiemTraConfig.CreateMap(cfg);
+                Model_Config.CreateMap(cfg);
             });
 
             var mapper = config.CreateMapper();

@@ -34,7 +34,7 @@ namespace E_learning.Repositories
         {
             var config = new MapperConfiguration(cfg =>
             {
-                LopConfig.CreateMap(cfg);
+                Model_Config.CreateMap(cfg);
             });
 
             var mapper = config.CreateMapper();
@@ -42,8 +42,8 @@ namespace E_learning.Repositories
             Lop lop = new Lop();
             lop = mapper.Map<LopModel, Lop>(newLop);
 
-            _dbcontext.Lops.Add(lop);
-            _dbcontext.SaveChanges();
+           _dbcontext.Lops.Add(lop);
+           _dbcontext.SaveChanges();
         }
 
         public async void UpdateLop (Guid ID_Lop, LopModel newLop)

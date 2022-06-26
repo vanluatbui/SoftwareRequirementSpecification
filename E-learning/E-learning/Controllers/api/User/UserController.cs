@@ -54,7 +54,7 @@ namespace E_learning.Controllers.api.User
 
                 var config = new MapperConfiguration(cfg =>
                 {
-                    UserConfig.CreateMap(cfg);
+                    Model_Config.CreateMap(cfg);
                 });
 
                 var mapper = config.CreateMapper();
@@ -93,13 +93,13 @@ namespace E_learning.Controllers.api.User
         }
 
         [HttpPut]
-        public async Task<ActionResult> UpdateInfo_User (string username, ModelUser userModel)
+        public async Task<ActionResult> UpdateInfo_User (string username, UserModel userModel)
         {
             try
             {
                 var user = await userManager.FindByNameAsync(username);
 
-                user.UserName = userModel.UserName;
+                user.UserName = userModel.UserName; //nếu cần thay đổi Username khác
                 user.Email = userModel.Email;
                 user.HoTen = userModel.HoTen;
                 user.GioiTinh = userModel.GioiTinh;

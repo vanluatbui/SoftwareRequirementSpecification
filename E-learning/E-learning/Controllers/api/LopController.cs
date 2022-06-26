@@ -1,4 +1,4 @@
-﻿using E_learning.Entity;
+﻿
 using E_learning.Model;
 using E_learning.Services;
 using Microsoft.AspNetCore.Http;
@@ -23,6 +23,7 @@ namespace E_learning.Controllers.api
         [HttpGet]
         public async Task<ActionResult> GetLop()
         {
+
             try
             {
                 var listLop = _lopService.GetLops();

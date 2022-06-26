@@ -32,7 +32,7 @@ namespace E_learning.Repositories
         {
             var config = new MapperConfiguration(cfg =>
             {
-                Lop_HocSinhConfig.CreateMap(cfg);
+                Model_Config.CreateMap(cfg);
             });
 
             var mapper = config.CreateMapper();
