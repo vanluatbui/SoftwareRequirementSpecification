@@ -36,9 +36,16 @@ namespace E_learning.Entity
         [Required]
         public string Link { get; set; }
 
-        public AspNetUser GiaoVien { get; set; }
+        [Required]
+        public string ID_GiaoVien { get; set; }
+
+        [Required, ForeignKey("ID_GiaoVien")]
+        public AspNetUser GiaoVien{ get; set; }
 
         [Required]
+        public Guid ID_KhoaHoc { get; set; }
+
+        [Required, ForeignKey("ID_KhoaHoc")]
         public KhoaHoc KhoaHoc { get; set; }
     }
 }

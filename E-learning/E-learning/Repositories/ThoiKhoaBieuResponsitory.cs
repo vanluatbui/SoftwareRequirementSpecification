@@ -40,6 +40,9 @@ namespace E_learning.Repositories
             ThoiKhoaBieu tkb = new ThoiKhoaBieu();
             tkb = mapper.Map<ThoiKhoaBieuModel, ThoiKhoaBieu>(newThoiKhoaBieu);
 
+            tkb.Lop = _dbcontext.Lops.FirstOrDefault(p => p.ID_Lop == newThoiKhoaBieu.ID_Lop);
+            tkb.MonHoc = _dbcontext.MonHocs.FirstOrDefault(p => p.ID_MonHoc == newThoiKhoaBieu.ID_MonHoc);
+
             _dbcontext.ThoiKhoaBieus.Add(tkb);
             _dbcontext.SaveChanges();
         }

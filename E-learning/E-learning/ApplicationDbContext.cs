@@ -23,6 +23,31 @@ namespace E_learning
         protected override async void OnModelCreating(ModelBuilder builder)
         {
             base.OnModelCreating(builder);
+
+            builder.Entity<Lop>().HasOne<AspNetUser>(P => P.GiaoVien).WithMany().OnDelete(DeleteBehavior.NoAction);
+            builder.Entity<Lop>().HasOne<KhoaHoc>(P => P.KhoaHoc).WithMany().OnDelete(DeleteBehavior.NoAction);
+
+            builder.Entity<Lop_HocSinh>().HasOne<Lop>(P => P.Lop).WithMany().OnDelete(DeleteBehavior.NoAction);
+            builder.Entity<Lop_HocSinh>().HasOne<AspNetUser>(P => P.HocSinh).WithMany().OnDelete(DeleteBehavior.NoAction);
+
+            builder.Entity<Lop_MonHoc>().HasOne<Lop>(P => P.Lop).WithMany().OnDelete(DeleteBehavior.NoAction);
+            builder.Entity<Lop_MonHoc>().HasOne<AspNetUser>(P => P.GiaoVien).WithMany().OnDelete(DeleteBehavior.NoAction);
+            builder.Entity<Lop_MonHoc>().HasOne<MonHoc>(P => P.MonHoc).WithMany().OnDelete(DeleteBehavior.NoAction);
+
+            builder.Entity<ThoiKhoaBieu>().HasOne<Lop>(P => P.Lop).WithMany().OnDelete(DeleteBehavior.NoAction);
+            builder.Entity<ThoiKhoaBieu>().HasOne<MonHoc>(P => P.MonHoc).WithMany().OnDelete(DeleteBehavior.NoAction);
+
+            builder.Entity<Lop_Thi_KiemTra>().HasOne<Lop>(P => P.Lop).WithMany().OnDelete(DeleteBehavior.NoAction);
+            builder.Entity<Lop_Thi_KiemTra>().HasOne<HinhThuc_Thi_KiemTra>(P => P.HinhThuc).WithMany().OnDelete(DeleteBehavior.NoAction);
+            builder.Entity<Lop_Thi_KiemTra>().HasOne<MonHoc>(P => P.MonHoc).WithMany().OnDelete(DeleteBehavior.NoAction);
+
+            builder.Entity<Diem_HocSinh>().HasOne<AspNetUser>(P => P.HocSinh).WithMany().OnDelete(DeleteBehavior.NoAction);
+            builder.Entity<Diem_HocSinh>().HasOne<MonHoc>(P => P.MonHoc).WithMany().OnDelete(DeleteBehavior.NoAction);
+
+
+
+
+
         }
     }
 }

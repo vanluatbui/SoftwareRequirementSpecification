@@ -4,12 +4,12 @@ namespace E_learning.Model
 {
     public class Lop_Thi_KiemTraModel
     {
-        public Lop Lop { get; set; }
+        public Guid ID_Lop { get; set; }
         public DateTime NgayKiemTra { get; set; }
 
-        public MonHoc MonHoc { get; set; }
+        public Guid ID_MonHoc { get; set; }
 
-        public HinhThuc_Thi_KiemTra HinhThuc { get; set; }
+        public Guid ID_HinhThuc { get; set; }
 
         public string NoiDung { get; set; }
 

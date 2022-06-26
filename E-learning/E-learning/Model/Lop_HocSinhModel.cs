@@ -4,9 +4,9 @@ namespace E_learning.Model
 {
     public class Lop_HocSinhModel
     {
-        public Lop Lop { get; set; }
+        public Guid ID_Lop { get; set; }
 
-        public AspNetUser HocSinh { get; set; }
+        public string username_HocSinh { get; set; }
         public DateTime NgayThamGia { get; set; }
     }
 }

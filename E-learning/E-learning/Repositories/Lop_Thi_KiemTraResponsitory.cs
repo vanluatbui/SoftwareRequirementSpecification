@@ -40,6 +40,10 @@ namespace E_learning.Repositories
             Lop_Thi_KiemTra kt = new Lop_Thi_KiemTra();
             kt = mapper.Map<Lop_Thi_KiemTraModel, Lop_Thi_KiemTra>(newKT);
 
+            kt.Lop = _dbcontext.Lops.FirstOrDefault(p => p.ID_Lop == newKT.ID_Lop);
+            kt.MonHoc = _dbcontext.MonHocs.FirstOrDefault(p => p.ID_MonHoc == newKT.ID_MonHoc);
+            kt.HinhThuc = _dbcontext.HinhThuc_Thi_KiemTras.FirstOrDefault(p => p.ID_HinhThuc == newKT.ID_HinhThuc);
+
             _dbcontext.Lop_Thi_KiemTras.Add(kt);
             _dbcontext.SaveChanges();
         }

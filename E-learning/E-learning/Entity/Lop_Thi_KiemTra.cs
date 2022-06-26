@@ -10,15 +10,24 @@ namespace E_learning.Entity
          public Guid ID { get; set; }
 
         [Required]
+        public Guid ID_Lop { get; set; }
+
+        [Required, ForeignKey("ID_Lop")]
         public Lop Lop { get; set; }
 
         [Required]
         public DateTime NgayKiemTra { get; set; }
 
         [Required]
+        public Guid ID_MonHoc { get; set; }
+
+        [Required, ForeignKey("ID_MonHoc")]
         public MonHoc MonHoc { get; set; }
 
         [Required]
+        public Guid ID_HinhThuc { get; set; }
+
+        [Required, ForeignKey("ID_HinhThuc")]
         public HinhThuc_Thi_KiemTra HinhThuc { get; set; }
 
         [Required, MaxLength(100)]

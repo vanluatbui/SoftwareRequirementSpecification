@@ -40,6 +40,11 @@ namespace E_learning.Repositories
             Lop_MonHoc lop_mh = new Lop_MonHoc();
             lop_mh = mapper.Map<Lop_MonHocModel, Lop_MonHoc>(newLop_MonHoc);
 
+            lop_mh.GiaoVien = _dbcontext.Users.FirstOrDefault(p => p.UserName == newLop_MonHoc.usetname_GiaoVien);
+            lop_mh.Lop = _dbcontext.Lops.FirstOrDefault(p => p.ID_Lop == newLop_MonHoc.ID_Lop);
+            lop_mh.MonHoc = _dbcontext.MonHocs.FirstOrDefault(p => p.ID_MonHoc == newLop_MonHoc.ID_MonHoc);
+
+
             _dbcontext.Lop_MonHocs.Add(lop_mh);
             _dbcontext.SaveChanges();
         }

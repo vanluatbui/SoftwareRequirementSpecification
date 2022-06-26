@@ -25,9 +25,9 @@ namespace E_learning.Repositories
 
         public List<Lop> GetLops()
         {
-            var query = _dbcontext.Lops;
+            var listLop = _dbcontext.Lops.ToList();
             
-            return query.ToList();
+            return listLop;
         }
 
         public async void InsertLop(LopModel newLop)
@@ -41,6 +41,9 @@ namespace E_learning.Repositories
 
             Lop lop = new Lop();
             lop = mapper.Map<LopModel, Lop>(newLop);
+
+            lop.GiaoVien = _dbcontext.Users.FirstOrDefault(p => p.UserName == newLop.username_GiaoVien);
+            lop.KhoaHoc = _dbcontext.KhoaHocs.FirstOrDefault( p => p.ID_KhoaHoc == newLop.ID_KhoaHoc);
 
            _dbcontext.Lops.Add(lop);
            _dbcontext.SaveChanges();

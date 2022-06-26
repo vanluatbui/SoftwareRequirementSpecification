@@ -4,9 +4,9 @@ namespace E_learning.Model
 {
     public class Diem_HocSinhModel
     {
-        public AspNetUser HocSinh { get; set; }
+        public string username_HocSinh { get; set; }
 
-        public MonHoc MonHoc { get; set; }
+        public Guid ID_MonHoc { get; set; }
 
         public double DiemChuyenCan { get; set; }
 

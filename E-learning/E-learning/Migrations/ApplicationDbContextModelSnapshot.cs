@@ -118,11 +118,11 @@ namespace E_learning.Migrations
                     b.Property<double>("DiemTrungBinh")
                         .HasColumnType("float");
 
-                    b.Property<string>("HocSinhId")
+                    b.Property<string>("ID_HocSinh")
                         .IsRequired()
                         .HasColumnType("nvarchar(450)");
 
-                    b.Property<Guid>("MonHocID_MonHoc")
+                    b.Property<Guid>("ID_MonHoc")
                         .HasColumnType("uniqueidentifier");
 
                     b.Property<DateTime>("NgayCapNhat")
@@ -130,9 +130,9 @@ namespace E_learning.Migrations
 
                     b.HasKey("ID");
 
-                    b.HasIndex("HocSinhId");
+                    b.HasIndex("ID_HocSinh");
 
-                    b.HasIndex("MonHocID_MonHoc");
+                    b.HasIndex("ID_MonHoc");
 
                     b.ToTable("Diem_HocSinhs");
                 });
@@ -188,10 +188,11 @@ namespace E_learning.Migrations
                         .HasMaxLength(100)
                         .HasColumnType("nvarchar(100)");
 
-                    b.Property<string>("GiaoVienId")
+                    b.Property<string>("ID_GiaoVien")
+                        .IsRequired()
                         .HasColumnType("nvarchar(450)");
 
-                    b.Property<Guid>("KhoaHocID_KhoaHoc")
+                    b.Property<Guid>("ID_KhoaHoc")
                         .HasColumnType("uniqueidentifier");
 
                     b.Property<string>("Link")
@@ -222,9 +223,9 @@ namespace E_learning.Migrations
 
                     b.HasKey("ID_Lop");
 
-                    b.HasIndex("GiaoVienId");
+                    b.HasIndex("ID_GiaoVien");
 
-                    b.HasIndex("KhoaHocID_KhoaHoc");
+                    b.HasIndex("ID_KhoaHoc");
 
                     b.ToTable("Lops");
                 });
@@ -235,11 +236,11 @@ namespace E_learning.Migrations
                         .ValueGeneratedOnAdd()
                         .HasColumnType("uniqueidentifier");
 
-                    b.Property<string>("HocSinhId")
+                    b.Property<string>("ID_HocSinh")
                         .IsRequired()
                         .HasColumnType("nvarchar(450)");
 
-                    b.Property<Guid>("LopID_Lop")
+                    b.Property<Guid>("ID_Lop")
                         .HasColumnType("uniqueidentifier");
 
                     b.Property<DateTime>("NgayThamGia")
@@ -247,9 +248,9 @@ namespace E_learning.Migrations
 
                     b.HasKey("ID");
 
-                    b.HasIndex("HocSinhId");
+                    b.HasIndex("ID_HocSinh");
 
-                    b.HasIndex("LopID_Lop");
+                    b.HasIndex("ID_Lop");
 
                     b.ToTable("Lop_HocSinhs");
                 });
@@ -265,19 +266,20 @@ namespace E_learning.Migrations
                         .HasMaxLength(50)
                         .HasColumnType("nvarchar(50)");
 
-                    b.Property<string>("GiaoVienId")
+                    b.Property<string>("ID_GiaoVien")
+                        .IsRequired()
                         .HasColumnType("nvarchar(450)");
+
+                    b.Property<Guid>("ID_Lop")
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<Guid>("ID_MonHoc")
+                        .HasColumnType("uniqueidentifier");
 
                     b.Property<string>("Link")
                         .IsRequired()
                         .HasMaxLength(50)
                         .HasColumnType("nvarchar(50)");
-
-                    b.Property<Guid>("LopID_Lop")
-                        .HasColumnType("uniqueidentifier");
-
-                    b.Property<Guid>("MonHocID_MonHoc")
-                        .HasColumnType("uniqueidentifier");
 
                     b.Property<DateTime>("NgayBatDau")
                         .HasColumnType("datetime2");
@@ -293,11 +295,11 @@ namespace E_learning.Migrations
 
                     b.HasKey("ID");
 
-                    b.HasIndex("GiaoVienId");
+                    b.HasIndex("ID_GiaoVien");
 
-                    b.HasIndex("LopID_Lop");
+                    b.HasIndex("ID_Lop");
 
-                    b.HasIndex("MonHocID_MonHoc");
+                    b.HasIndex("ID_MonHoc");
 
                     b.ToTable("Lop_MonHocs");
                 });
@@ -318,19 +320,19 @@ namespace E_learning.Migrations
                         .HasMaxLength(50)
                         .HasColumnType("nvarchar(50)");
 
-                    b.Property<Guid>("HinhThucID_HinhThuc")
+                    b.Property<Guid>("ID_HinhThuc")
                         .HasColumnType("uniqueidentifier");
 
-                    b.Property<Guid>("LopID_Lop")
+                    b.Property<Guid>("ID_Lop")
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<Guid>("ID_MonHoc")
                         .HasColumnType("uniqueidentifier");
 
                     b.Property<string>("MoTa")
                         .IsRequired()
                         .HasMaxLength(100)
                         .HasColumnType("nvarchar(100)");
-
-                    b.Property<Guid>("MonHocID_MonHoc")
-                        .HasColumnType("uniqueidentifier");
 
                     b.Property<DateTime>("NgayKiemTra")
                         .HasColumnType("datetime2");
@@ -348,11 +350,11 @@ namespace E_learning.Migrations
 
                     b.HasKey("ID");
 
-                    b.HasIndex("HinhThucID_HinhThuc");
+                    b.HasIndex("ID_HinhThuc");
 
-                    b.HasIndex("LopID_Lop");
+                    b.HasIndex("ID_Lop");
 
-                    b.HasIndex("MonHocID_MonHoc");
+                    b.HasIndex("ID_MonHoc");
 
                     b.ToTable("Lop_Thi_KiemTras");
                 });
@@ -384,10 +386,10 @@ namespace E_learning.Migrations
                         .ValueGeneratedOnAdd()
                         .HasColumnType("uniqueidentifier");
 
-                    b.Property<Guid>("LopID_Lop")
+                    b.Property<Guid>("ID_Lop")
                         .HasColumnType("uniqueidentifier");
 
-                    b.Property<Guid>("MonHocID_MonHoc")
+                    b.Property<Guid>("ID_MonHoc")
                         .HasColumnType("uniqueidentifier");
 
                     b.Property<DateTime>("NgayHoc")
@@ -398,9 +400,9 @@ namespace E_learning.Migrations
 
                     b.HasKey("ID");
 
-                    b.HasIndex("LopID_Lop");
+                    b.HasIndex("ID_Lop");
 
-                    b.HasIndex("MonHocID_MonHoc");
+                    b.HasIndex("ID_MonHoc");
 
                     b.ToTable("ThoiKhoaBieus");
                 });
@@ -542,14 +544,14 @@ namespace E_learning.Migrations
                 {
                     b.HasOne("E_learning.Entity.AspNetUser", "HocSinh")
                         .WithMany()
-                        .HasForeignKey("HocSinhId")
-                        .OnDelete(DeleteBehavior.Cascade)
+                        .HasForeignKey("ID_HocSinh")
+                        .OnDelete(DeleteBehavior.NoAction)
                         .IsRequired();
 
                     b.HasOne("E_learning.Entity.MonHoc", "MonHoc")
                         .WithMany()
-                        .HasForeignKey("MonHocID_MonHoc")
-                        .OnDelete(DeleteBehavior.Cascade)
+                        .HasForeignKey("ID_MonHoc")
+                        .OnDelete(DeleteBehavior.NoAction)
                         .IsRequired();
 
                     b.Navigation("HocSinh");
@@ -561,12 +563,14 @@ namespace E_learning.Migrations
                 {
                     b.HasOne("E_learning.Entity.AspNetUser", "GiaoVien")
                         .WithMany()
-                        .HasForeignKey("GiaoVienId");
+                        .HasForeignKey("ID_GiaoVien")
+                        .OnDelete(DeleteBehavior.NoAction)
+                        .IsRequired();
 
                     b.HasOne("E_learning.Entity.KhoaHoc", "KhoaHoc")
                         .WithMany()
-                        .HasForeignKey("KhoaHocID_KhoaHoc")
-                        .OnDelete(DeleteBehavior.Cascade)
+                        .HasForeignKey("ID_KhoaHoc")
+                        .OnDelete(DeleteBehavior.NoAction)
                         .IsRequired();
 
                     b.Navigation("GiaoVien");
@@ -578,14 +582,14 @@ namespace E_learning.Migrations
                 {
                     b.HasOne("E_learning.Entity.AspNetUser", "HocSinh")
                         .WithMany()
-                        .HasForeignKey("HocSinhId")
-                        .OnDelete(DeleteBehavior.Cascade)
+                        .HasForeignKey("ID_HocSinh")
+                        .OnDelete(DeleteBehavior.NoAction)
                         .IsRequired();
 
                     b.HasOne("E_learning.Entity.Lop", "Lop")
                         .WithMany()
-                        .HasForeignKey("LopID_Lop")
-                        .OnDelete(DeleteBehavior.Cascade)
+                        .HasForeignKey("ID_Lop")
+                        .OnDelete(DeleteBehavior.NoAction)
                         .IsRequired();
 
                     b.Navigation("HocSinh");
@@ -597,18 +601,20 @@ namespace E_learning.Migrations
                 {
                     b.HasOne("E_learning.Entity.AspNetUser", "GiaoVien")
                         .WithMany()
-                        .HasForeignKey("GiaoVienId");
+                        .HasForeignKey("ID_GiaoVien")
+                        .OnDelete(DeleteBehavior.NoAction)
+                        .IsRequired();
 
                     b.HasOne("E_learning.Entity.Lop", "Lop")
                         .WithMany()
-                        .HasForeignKey("LopID_Lop")
-                        .OnDelete(DeleteBehavior.Cascade)
+                        .HasForeignKey("ID_Lop")
+                        .OnDelete(DeleteBehavior.NoAction)
                         .IsRequired();
 
                     b.HasOne("E_learning.Entity.MonHoc", "MonHoc")
                         .WithMany()
-                        .HasForeignKey("MonHocID_MonHoc")
-                        .OnDelete(DeleteBehavior.Cascade)
+                        .HasForeignKey("ID_MonHoc")
+                        .OnDelete(DeleteBehavior.NoAction)
                         .IsRequired();
 
                     b.Navigation("GiaoVien");
@@ -622,20 +628,20 @@ namespace E_learning.Migrations
                 {
                     b.HasOne("E_learning.Entity.HinhThuc_Thi_KiemTra", "HinhThuc")
                         .WithMany()
-                        .HasForeignKey("HinhThucID_HinhThuc")
-                        .OnDelete(DeleteBehavior.Cascade)
+                        .HasForeignKey("ID_HinhThuc")
+                        .OnDelete(DeleteBehavior.NoAction)
                         .IsRequired();
 
                     b.HasOne("E_learning.Entity.Lop", "Lop")
                         .WithMany()
-                        .HasForeignKey("LopID_Lop")
-                        .OnDelete(DeleteBehavior.Cascade)
+                        .HasForeignKey("ID_Lop")
+                        .OnDelete(DeleteBehavior.NoAction)
                         .IsRequired();
 
                     b.HasOne("E_learning.Entity.MonHoc", "MonHoc")
                         .WithMany()
-                        .HasForeignKey("MonHocID_MonHoc")
-                        .OnDelete(DeleteBehavior.Cascade)
+                        .HasForeignKey("ID_MonHoc")
+                        .OnDelete(DeleteBehavior.NoAction)
                         .IsRequired();
 
                     b.Navigation("HinhThuc");
@@ -649,14 +655,14 @@ namespace E_learning.Migrations
                 {
                     b.HasOne("E_learning.Entity.Lop", "Lop")
                         .WithMany()
-                        .HasForeignKey("LopID_Lop")
-                        .OnDelete(DeleteBehavior.Cascade)
+                        .HasForeignKey("ID_Lop")
+                        .OnDelete(DeleteBehavior.NoAction)
                         .IsRequired();
 
                     b.HasOne("E_learning.Entity.MonHoc", "MonHoc")
                         .WithMany()
-                        .HasForeignKey("MonHocID_MonHoc")
-                        .OnDelete(DeleteBehavior.Cascade)
+                        .HasForeignKey("ID_MonHoc")
+                        .OnDelete(DeleteBehavior.NoAction)
                         .IsRequired();
 
                     b.Navigation("Lop");

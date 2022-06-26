@@ -10,9 +10,15 @@ namespace E_learning.Entity
         public Guid ID { get; set; }
 
         [Required]
+        public string ID_HocSinh { get; set; }
+
+        [Required,ForeignKey("ID_HocSinh")]
         public AspNetUser HocSinh { get; set; }
 
         [Required]
+        public Guid ID_MonHoc { get; set; }
+
+        [Required, ForeignKey("ID_MonHoc")]
         public MonHoc MonHoc { get; set; }
 
         [Required]

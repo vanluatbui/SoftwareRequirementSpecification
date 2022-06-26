@@ -208,23 +208,22 @@ namespace E_learning.Migrations
                     Status = table.Column<int>(type: "int", nullable: false),
                     BaoMat = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     Link = table.Column<string>(type: "nvarchar(max)", nullable: false),
-                    GiaoVienId = table.Column<string>(type: "nvarchar(450)", nullable: true),
-                    KhoaHocID_KhoaHoc = table.Column<Guid>(type: "uniqueidentifier", nullable: false)
+                    ID_GiaoVien = table.Column<string>(type: "nvarchar(450)", nullable: false),
+                    ID_KhoaHoc = table.Column<Guid>(type: "uniqueidentifier", nullable: false)
                 },
                 constraints: table =>
                 {
                     table.PrimaryKey("PK_Lops", x => x.ID_Lop);
                     table.ForeignKey(
-                        name: "FK_Lops_AspNetUsers_GiaoVienId",
-                        column: x => x.GiaoVienId,
+                        name: "FK_Lops_AspNetUsers_ID_GiaoVien",
+                        column: x => x.ID_GiaoVien,
                         principalTable: "AspNetUsers",
                         principalColumn: "Id");
                     table.ForeignKey(
-                        name: "FK_Lops_KhoaHocs_KhoaHocID_KhoaHoc",
-                        column: x => x.KhoaHocID_KhoaHoc,
+                        name: "FK_Lops_KhoaHocs_ID_KhoaHoc",
+                        column: x => x.ID_KhoaHoc,
                         principalTable: "KhoaHocs",
-                        principalColumn: "ID_KhoaHoc",
-                        onDelete: ReferentialAction.Cascade);
+                        principalColumn: "ID_KhoaHoc");
                 });
 
             migrationBuilder.CreateTable(
@@ -232,8 +231,8 @@ namespace E_learning.Migrations
                 columns: table => new
                 {
                     ID = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
-                    HocSinhId = table.Column<string>(type: "nvarchar(450)", nullable: false),
-                    MonHocID_MonHoc = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
+                    ID_HocSinh = table.Column<string>(type: "nvarchar(450)", nullable: false),
+                    ID_MonHoc = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
                     DiemChuyenCan = table.Column<double>(type: "float", nullable: false),
                     DiemMieng = table.Column<double>(type: "float", nullable: false),
                     DiemHeSo2 = table.Column<double>(type: "float", nullable: false),
@@ -246,17 +245,15 @@ namespace E_learning.Migrations
                 {
                     table.PrimaryKey("PK_Diem_HocSinhs", x => x.ID);
                     table.ForeignKey(
-                        name: "FK_Diem_HocSinhs_AspNetUsers_HocSinhId",
-                        column: x => x.HocSinhId,
+                        name: "FK_Diem_HocSinhs_AspNetUsers_ID_HocSinh",
+                        column: x => x.ID_HocSinh,
                         principalTable: "AspNetUsers",
-                        principalColumn: "Id",
-                        onDelete: ReferentialAction.Cascade);
+                        principalColumn: "Id");
                     table.ForeignKey(
-                        name: "FK_Diem_HocSinhs_MonHocs_MonHocID_MonHoc",
-                        column: x => x.MonHocID_MonHoc,
+                        name: "FK_Diem_HocSinhs_MonHocs_ID_MonHoc",
+                        column: x => x.ID_MonHoc,
                         principalTable: "MonHocs",
-                        principalColumn: "ID_MonHoc",
-                        onDelete: ReferentialAction.Cascade);
+                        principalColumn: "ID_MonHoc");
                 });
 
             migrationBuilder.CreateTable(
@@ -264,25 +261,23 @@ namespace E_learning.Migrations
                 columns: table => new
                 {
                     ID = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
-                    LopID_Lop = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
-                    HocSinhId = table.Column<string>(type: "nvarchar(450)", nullable: false),
+                    ID_Lop = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
+                    ID_HocSinh = table.Column<string>(type: "nvarchar(450)", nullable: false),
                     NgayThamGia = table.Column<DateTime>(type: "datetime2", nullable: false)
                 },
                 constraints: table =>
                 {
                     table.PrimaryKey("PK_Lop_HocSinhs", x => x.ID);
                     table.ForeignKey(
-                        name: "FK_Lop_HocSinhs_AspNetUsers_HocSinhId",
-                        column: x => x.HocSinhId,
+                        name: "FK_Lop_HocSinhs_AspNetUsers_ID_HocSinh",
+                        column: x => x.ID_HocSinh,
                         principalTable: "AspNetUsers",
-                        principalColumn: "Id",
-                        onDelete: ReferentialAction.Cascade);
+                        principalColumn: "Id");
                     table.ForeignKey(
-                        name: "FK_Lop_HocSinhs_Lops_LopID_Lop",
-                        column: x => x.LopID_Lop,
+                        name: "FK_Lop_HocSinhs_Lops_ID_Lop",
+                        column: x => x.ID_Lop,
                         principalTable: "Lops",
-                        principalColumn: "ID_Lop",
-                        onDelete: ReferentialAction.Cascade);
+                        principalColumn: "ID_Lop");
                 });
 
             migrationBuilder.CreateTable(
@@ -290,36 +285,34 @@ namespace E_learning.Migrations
                 columns: table => new
                 {
                     ID = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
-                    LopID_Lop = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
-                    MonHocID_MonHoc = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
+                    ID_Lop = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
+                    ID_MonHoc = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
                     ThoiLuongHoc = table.Column<int>(type: "int", nullable: false),
                     NgayBatDau = table.Column<DateTime>(type: "datetime2", nullable: false),
                     NgayKetThuc = table.Column<DateTime>(type: "datetime2", nullable: false),
                     BaoMat = table.Column<string>(type: "nvarchar(50)", maxLength: 50, nullable: false),
                     Link = table.Column<string>(type: "nvarchar(50)", maxLength: 50, nullable: false),
                     Status = table.Column<int>(type: "int", nullable: false),
-                    GiaoVienId = table.Column<string>(type: "nvarchar(450)", nullable: true)
+                    ID_GiaoVien = table.Column<string>(type: "nvarchar(450)", nullable: false)
                 },
                 constraints: table =>
                 {
                     table.PrimaryKey("PK_Lop_MonHocs", x => x.ID);
                     table.ForeignKey(
-                        name: "FK_Lop_MonHocs_AspNetUsers_GiaoVienId",
-                        column: x => x.GiaoVienId,
+                        name: "FK_Lop_MonHocs_AspNetUsers_ID_GiaoVien",
+                        column: x => x.ID_GiaoVien,
                         principalTable: "AspNetUsers",
                         principalColumn: "Id");
                     table.ForeignKey(
-                        name: "FK_Lop_MonHocs_Lops_LopID_Lop",
-                        column: x => x.LopID_Lop,
+                        name: "FK_Lop_MonHocs_Lops_ID_Lop",
+                        column: x => x.ID_Lop,
                         principalTable: "Lops",
-                        principalColumn: "ID_Lop",
-                        onDelete: ReferentialAction.Cascade);
+                        principalColumn: "ID_Lop");
                     table.ForeignKey(
-                        name: "FK_Lop_MonHocs_MonHocs_MonHocID_MonHoc",
-                        column: x => x.MonHocID_MonHoc,
+                        name: "FK_Lop_MonHocs_MonHocs_ID_MonHoc",
+                        column: x => x.ID_MonHoc,
                         principalTable: "MonHocs",
-                        principalColumn: "ID_MonHoc",
-                        onDelete: ReferentialAction.Cascade);
+                        principalColumn: "ID_MonHoc");
                 });
 
             migrationBuilder.CreateTable(
@@ -327,10 +320,10 @@ namespace E_learning.Migrations
                 columns: table => new
                 {
                     ID = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
-                    LopID_Lop = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
+                    ID_Lop = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
                     NgayKiemTra = table.Column<DateTime>(type: "datetime2", nullable: false),
-                    MonHocID_MonHoc = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
-                    HinhThucID_HinhThuc = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
+                    ID_MonHoc = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
+                    ID_HinhThuc = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
                     NoiDung = table.Column<string>(type: "nvarchar(100)", maxLength: 100, nullable: false),
                     ChuDe = table.Column<string>(type: "nvarchar(100)", maxLength: 100, nullable: false),
                     MoTa = table.Column<string>(type: "nvarchar(100)", maxLength: 100, nullable: false),
@@ -342,23 +335,20 @@ namespace E_learning.Migrations
                 {
                     table.PrimaryKey("PK_Lop_Thi_KiemTras", x => x.ID);
                     table.ForeignKey(
-                        name: "FK_Lop_Thi_KiemTras_HinhThuc_Thi_KiemTras_HinhThucID_HinhThuc",
-                        column: x => x.HinhThucID_HinhThuc,
+                        name: "FK_Lop_Thi_KiemTras_HinhThuc_Thi_KiemTras_ID_HinhThuc",
+                        column: x => x.ID_HinhThuc,
                         principalTable: "HinhThuc_Thi_KiemTras",
-                        principalColumn: "ID_HinhThuc",
-                        onDelete: ReferentialAction.Cascade);
+                        principalColumn: "ID_HinhThuc");
                     table.ForeignKey(
-                        name: "FK_Lop_Thi_KiemTras_Lops_LopID_Lop",
-                        column: x => x.LopID_Lop,
+                        name: "FK_Lop_Thi_KiemTras_Lops_ID_Lop",
+                        column: x => x.ID_Lop,
                         principalTable: "Lops",
-                        principalColumn: "ID_Lop",
-                        onDelete: ReferentialAction.Cascade);
+                        principalColumn: "ID_Lop");
                     table.ForeignKey(
-                        name: "FK_Lop_Thi_KiemTras_MonHocs_MonHocID_MonHoc",
-                        column: x => x.MonHocID_MonHoc,
+                        name: "FK_Lop_Thi_KiemTras_MonHocs_ID_MonHoc",
+                        column: x => x.ID_MonHoc,
                         principalTable: "MonHocs",
-                        principalColumn: "ID_MonHoc",
-                        onDelete: ReferentialAction.Cascade);
+                        principalColumn: "ID_MonHoc");
                 });
 
             migrationBuilder.CreateTable(
@@ -366,26 +356,24 @@ namespace E_learning.Migrations
                 columns: table => new
                 {
                     ID = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
-                    LopID_Lop = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
+                    ID_Lop = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
                     NgayHoc = table.Column<DateTime>(type: "datetime2", nullable: false),
                     SoTiet = table.Column<int>(type: "int", nullable: false),
-                    MonHocID_MonHoc = table.Column<Guid>(type: "uniqueidentifier", nullable: false)
+                    ID_MonHoc = table.Column<Guid>(type: "uniqueidentifier", nullable: false)
                 },
                 constraints: table =>
                 {
                     table.PrimaryKey("PK_ThoiKhoaBieus", x => x.ID);
                     table.ForeignKey(
-                        name: "FK_ThoiKhoaBieus_Lops_LopID_Lop",
-                        column: x => x.LopID_Lop,
+                        name: "FK_ThoiKhoaBieus_Lops_ID_Lop",
+                        column: x => x.ID_Lop,
                         principalTable: "Lops",
-                        principalColumn: "ID_Lop",
-                        onDelete: ReferentialAction.Cascade);
+                        principalColumn: "ID_Lop");
                     table.ForeignKey(
-                        name: "FK_ThoiKhoaBieus_MonHocs_MonHocID_MonHoc",
-                        column: x => x.MonHocID_MonHoc,
+                        name: "FK_ThoiKhoaBieus_MonHocs_ID_MonHoc",
+                        column: x => x.ID_MonHoc,
                         principalTable: "MonHocs",
-                        principalColumn: "ID_MonHoc",
-                        onDelete: ReferentialAction.Cascade);
+                        principalColumn: "ID_MonHoc");
                 });
 
             migrationBuilder.CreateIndex(
@@ -428,74 +416,74 @@ namespace E_learning.Migrations
                 filter: "[NormalizedUserName] IS NOT NULL");
 
             migrationBuilder.CreateIndex(
-                name: "IX_Diem_HocSinhs_HocSinhId",
+                name: "IX_Diem_HocSinhs_ID_HocSinh",
                 table: "Diem_HocSinhs",
-                column: "HocSinhId");
+                column: "ID_HocSinh");
 
             migrationBuilder.CreateIndex(
-                name: "IX_Diem_HocSinhs_MonHocID_MonHoc",
+                name: "IX_Diem_HocSinhs_ID_MonHoc",
                 table: "Diem_HocSinhs",
-                column: "MonHocID_MonHoc");
+                column: "ID_MonHoc");
 
             migrationBuilder.CreateIndex(
-                name: "IX_Lop_HocSinhs_HocSinhId",
+                name: "IX_Lop_HocSinhs_ID_HocSinh",
                 table: "Lop_HocSinhs",
-                column: "HocSinhId");
+                column: "ID_HocSinh");
 
             migrationBuilder.CreateIndex(
-                name: "IX_Lop_HocSinhs_LopID_Lop",
+                name: "IX_Lop_HocSinhs_ID_Lop",
                 table: "Lop_HocSinhs",
-                column: "LopID_Lop");
+                column: "ID_Lop");
 
             migrationBuilder.CreateIndex(
-                name: "IX_Lop_MonHocs_GiaoVienId",
+                name: "IX_Lop_MonHocs_ID_GiaoVien",
                 table: "Lop_MonHocs",
-                column: "GiaoVienId");
+                column: "ID_GiaoVien");
 
             migrationBuilder.CreateIndex(
-                name: "IX_Lop_MonHocs_LopID_Lop",
+                name: "IX_Lop_MonHocs_ID_Lop",
                 table: "Lop_MonHocs",
-                column: "LopID_Lop");
+                column: "ID_Lop");
 
             migrationBuilder.CreateIndex(
-                name: "IX_Lop_MonHocs_MonHocID_MonHoc",
+                name: "IX_Lop_MonHocs_ID_MonHoc",
                 table: "Lop_MonHocs",
-                column: "MonHocID_MonHoc");
+                column: "ID_MonHoc");
 
             migrationBuilder.CreateIndex(
-                name: "IX_Lop_Thi_KiemTras_HinhThucID_HinhThuc",
+                name: "IX_Lop_Thi_KiemTras_ID_HinhThuc",
                 table: "Lop_Thi_KiemTras",
-                column: "HinhThucID_HinhThuc");
+                column: "ID_HinhThuc");
 
             migrationBuilder.CreateIndex(
-                name: "IX_Lop_Thi_KiemTras_LopID_Lop",
+                name: "IX_Lop_Thi_KiemTras_ID_Lop",
                 table: "Lop_Thi_KiemTras",
-                column: "LopID_Lop");
+                column: "ID_Lop");
 
             migrationBuilder.CreateIndex(
-                name: "IX_Lop_Thi_KiemTras_MonHocID_MonHoc",
+                name: "IX_Lop_Thi_KiemTras_ID_MonHoc",
                 table: "Lop_Thi_KiemTras",
-                column: "MonHocID_MonHoc");
+                column: "ID_MonHoc");
 
             migrationBuilder.CreateIndex(
-                name: "IX_Lops_GiaoVienId",
+                name: "IX_Lops_ID_GiaoVien",
                 table: "Lops",
-                column: "GiaoVienId");
+                column: "ID_GiaoVien");
 
             migrationBuilder.CreateIndex(
-                name: "IX_Lops_KhoaHocID_KhoaHoc",
+                name: "IX_Lops_ID_KhoaHoc",
                 table: "Lops",
-                column: "KhoaHocID_KhoaHoc");
+                column: "ID_KhoaHoc");
 
             migrationBuilder.CreateIndex(
-                name: "IX_ThoiKhoaBieus_LopID_Lop",
+                name: "IX_ThoiKhoaBieus_ID_Lop",
                 table: "ThoiKhoaBieus",
-                column: "LopID_Lop");
+                column: "ID_Lop");
 
             migrationBuilder.CreateIndex(
-                name: "IX_ThoiKhoaBieus_MonHocID_MonHoc",
+                name: "IX_ThoiKhoaBieus_ID_MonHoc",
                 table: "ThoiKhoaBieus",
-                column: "MonHocID_MonHoc");
+                column: "ID_MonHoc");
         }
 
         protected override void Down(MigrationBuilder migrationBuilder)

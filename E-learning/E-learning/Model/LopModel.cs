@@ -5,6 +5,7 @@ namespace E_learning.Model
 {
     public class LopModel
     {
+        public Guid ID_Lop { get; set; }
         public string TenLop { get; set; }
         public string ChuDe { get; set; }
 
@@ -20,9 +21,7 @@ namespace E_learning.Model
         public string BaoMat { get; set; }
 
         public string Link { get; set; }
-
-        public AspNetUser GiaoVien { get; set; }
-
-        public KhoaHoc KhoaHoc { get; set; }
+        public string username_GiaoVien { get; set; }
+        public Guid ID_KhoaHoc { get; set; }
     }
 }

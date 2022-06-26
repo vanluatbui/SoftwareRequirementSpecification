@@ -4,11 +4,9 @@ namespace E_learning.Model
 {
     public class Lop_MonHocModel
     {
-        public Guid ID { get; set; }
+        public Guid ID_Lop { get; set; }
 
-        public Lop Lop { get; set; }
-
-        public MonHoc MonHoc { get; set; }
+        public Guid ID_MonHoc { get; set; }
 
         public int ThoiLuongHoc { get; set; }
 
@@ -22,6 +20,6 @@ namespace E_learning.Model
 
         public int Status { get; set; }
 
-        public AspNetUser GiaoVien { get; set; }
+        public string usetname_GiaoVien { get; set; }
     }
 }
