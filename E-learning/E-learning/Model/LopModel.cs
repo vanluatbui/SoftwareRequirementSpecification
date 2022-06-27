@@ -21,7 +21,7 @@ namespace E_learning.Model
         public string BaoMat { get; set; }
 
         public string Link { get; set; }
-        public string username_GiaoVien { get; set; }
+        public Guid ID_GiaoVien { get; set; }
         public Guid ID_KhoaHoc { get; set; }
     }
 }

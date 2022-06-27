@@ -40,9 +40,6 @@ namespace E_learning.Repositories
             Diem_HocSinh kq = new Diem_HocSinh();
             kq = mapper.Map<Diem_HocSinhModel, Diem_HocSinh>(newKQ);
 
-            kq.HocSinh = _dbcontext.Users.FirstOrDefault(p => p.UserName == newKQ.username_HocSinh);
-            kq.MonHoc = _dbcontext.MonHocs.FirstOrDefault(p => p.ID_MonHoc == newKQ.ID_MonHoc);
-
             _dbcontext.Diem_HocSinhs.Add(kq);
             _dbcontext.SaveChanges();
         }

@@ -20,6 +20,6 @@ namespace E_learning.Model
 
         public int Status { get; set; }
 
-        public string usetname_GiaoVien { get; set; }
+        public Guid ID_GiaoVien { get; set; }
     }
 }

@@ -42,9 +42,6 @@ namespace E_learning.Repositories
             Lop lop = new Lop();
             lop = mapper.Map<LopModel, Lop>(newLop);
 
-            lop.GiaoVien = _dbcontext.Users.FirstOrDefault(p => p.UserName == newLop.username_GiaoVien);
-            lop.KhoaHoc = _dbcontext.KhoaHocs.FirstOrDefault( p => p.ID_KhoaHoc == newLop.ID_KhoaHoc);
-
            _dbcontext.Lops.Add(lop);
            _dbcontext.SaveChanges();
         }

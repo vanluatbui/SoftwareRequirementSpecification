@@ -4,7 +4,7 @@ namespace E_learning.Model
 {
     public class Diem_HocSinhModel
     {
-        public string username_HocSinh { get; set; }
+        public Guid ID_HocSinh { get; set; }
 
         public Guid ID_MonHoc { get; set; }
 

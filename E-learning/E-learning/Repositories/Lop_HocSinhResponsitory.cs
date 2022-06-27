@@ -40,9 +40,6 @@ namespace E_learning.Repositories
             Lop_HocSinh lop_hs = new Lop_HocSinh();
             lop_hs = mapper.Map<Lop_HocSinhModel, Lop_HocSinh>(newLop_HocSinh);
 
-            lop_hs.HocSinh = _dbcontext.Users.FirstOrDefault(p => p.UserName == newLop_HocSinh.username_HocSinh);
-            lop_hs.Lop = _dbcontext.Lops.FirstOrDefault(p => p.ID_Lop == newLop_HocSinh.ID_Lop);
-
             _dbcontext.Lop_HocSinhs.Add(lop_hs);
             _dbcontext.SaveChanges();
         }
