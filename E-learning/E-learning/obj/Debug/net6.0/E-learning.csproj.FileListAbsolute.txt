@@ -5,12 +5,7 @@ E:\My Save ALTA Main\Project Main 2 - X\SoftwareRequirementSpecification\E-learn
 E:\My Save ALTA Main\Project Main 2 - X\SoftwareRequirementSpecification\E-learning\E-learning\bin\Debug\net6.0\E-learning.runtimeconfig.json
 E:\My Save ALTA Main\Project Main 2 - X\SoftwareRequirementSpecification\E-learning\E-learning\bin\Debug\net6.0\E-learning.dll
 E:\My Save ALTA Main\Project Main 2 - X\SoftwareRequirementSpecification\E-learning\E-learning\bin\Debug\net6.0\E-learning.pdb
-E:\My Save ALTA Main\Project Main 2 - X\SoftwareRequirementSpecification\E-learning\E-learning\bin\Debug\net6.0\AutoMapper.dll
 E:\My Save ALTA Main\Project Main 2 - X\SoftwareRequirementSpecification\E-learning\E-learning\bin\Debug\net6.0\Humanizer.dll
-E:\My Save ALTA Main\Project Main 2 - X\SoftwareRequirementSpecification\E-learning\E-learning\bin\Debug\net6.0\Microsoft.AspNetCore.Authentication.JwtBearer.dll
-E:\My Save ALTA Main\Project Main 2 - X\SoftwareRequirementSpecification\E-learning\E-learning\bin\Debug\net6.0\Microsoft.AspNetCore.Cryptography.Internal.dll
-E:\My Save ALTA Main\Project Main 2 - X\SoftwareRequirementSpecification\E-learning\E-learning\bin\Debug\net6.0\Microsoft.AspNetCore.Cryptography.KeyDerivation.dll
-E:\My Save ALTA Main\Project Main 2 - X\SoftwareRequirementSpecification\E-learning\E-learning\bin\Debug\net6.0\Microsoft.AspNetCore.Identity.EntityFrameworkCore.dll
 E:\My Save ALTA Main\Project Main 2 - X\SoftwareRequirementSpecification\E-learning\E-learning\bin\Debug\net6.0\Microsoft.Data.SqlClient.dll
 E:\My Save ALTA Main\Project Main 2 - X\SoftwareRequirementSpecification\E-learning\E-learning\bin\Debug\net6.0\Microsoft.EntityFrameworkCore.dll
 E:\My Save ALTA Main\Project Main 2 - X\SoftwareRequirementSpecification\E-learning\E-learning\bin\Debug\net6.0\Microsoft.EntityFrameworkCore.Abstractions.dll
@@ -18,8 +13,6 @@ E:\My Save ALTA Main\Project Main 2 - X\SoftwareRequirementSpecification\E-learn
 E:\My Save ALTA Main\Project Main 2 - X\SoftwareRequirementSpecification\E-learning\E-learning\bin\Debug\net6.0\Microsoft.EntityFrameworkCore.Relational.dll
 E:\My Save ALTA Main\Project Main 2 - X\SoftwareRequirementSpecification\E-learning\E-learning\bin\Debug\net6.0\Microsoft.EntityFrameworkCore.SqlServer.dll
 E:\My Save ALTA Main\Project Main 2 - X\SoftwareRequirementSpecification\E-learning\E-learning\bin\Debug\net6.0\Microsoft.Extensions.Caching.Memory.dll
-E:\My Save ALTA Main\Project Main 2 - X\SoftwareRequirementSpecification\E-learning\E-learning\bin\Debug\net6.0\Microsoft.Extensions.Identity.Core.dll
-E:\My Save ALTA Main\Project Main 2 - X\SoftwareRequirementSpecification\E-learning\E-learning\bin\Debug\net6.0\Microsoft.Extensions.Identity.Stores.dll
 E:\My Save ALTA Main\Project Main 2 - X\SoftwareRequirementSpecification\E-learning\E-learning\bin\Debug\net6.0\Microsoft.Identity.Client.dll
 E:\My Save ALTA Main\Project Main 2 - X\SoftwareRequirementSpecification\E-learning\E-learning\bin\Debug\net6.0\Microsoft.IdentityModel.JsonWebTokens.dll
 E:\My Save ALTA Main\Project Main 2 - X\SoftwareRequirementSpecification\E-learning\E-learning\bin\Debug\net6.0\Microsoft.IdentityModel.Logging.dll
@@ -66,3 +59,4 @@ E:\My Save ALTA Main\Project Main 2 - X\SoftwareRequirementSpecification\E-learn
 E:\My Save ALTA Main\Project Main 2 - X\SoftwareRequirementSpecification\E-learning\E-learning\obj\Debug\net6.0\E-learning.pdb
 E:\My Save ALTA Main\Project Main 2 - X\SoftwareRequirementSpecification\E-learning\E-learning\obj\Debug\net6.0\E-learning.genruntimeconfig.cache
 E:\My Save ALTA Main\Project Main 2 - X\SoftwareRequirementSpecification\E-learning\E-learning\obj\Debug\net6.0\ref\E-learning.dll
+E:\My Save ALTA Main\Project Main 2 - X\SoftwareRequirementSpecification\E-learning\E-learning\bin\Debug\net6.0\AutoMapper.dll
